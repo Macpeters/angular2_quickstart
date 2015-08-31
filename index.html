@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Angular 2 Todo App</title>
+    <!--  should be loaded into the <head>. It contains Traceur, ES6 Module Loader, System, Zone, and Traceur options for meta-data annotations -->
+    <script src="/dist/es6-shim.js"></script>
+  </head>
+  <body>
+    <!-- text is displayed while module loads -->
+    <todo-app>Warming up...</todo-app>
+    <script>
+    // where to look for modules
+      System.paths = {
+          'angular2/*':'/angular2/*.js',
+          'rtts_assert/*': '/rtts_assert/*.js',
+          // angular will be able to find todoStore
+          'services/*' : '/services/*.js',
+          // todo app module
+          'todoApp': 'TodoApp.es6'
+      };
+      // load the module
+      System.import('todoApp');
+    </script>
+  </body>
+</html>
